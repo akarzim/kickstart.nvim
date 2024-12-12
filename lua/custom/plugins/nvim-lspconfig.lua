@@ -137,6 +137,16 @@ return {
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, '[T]oggle Inlay [H]ints')
         end
+
+        -- Disable ESLint LSP server and hide virtual text in Neovim
+        local isLspDiagnosticsVisible = true
+        map('<leader>tl', function()
+          isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+          vim.diagnostic.config {
+            virtual_text = isLspDiagnosticsVisible,
+            underline = isLspDiagnosticsVisible,
+          }
+        end, '[T]oggle [L]sp diagnostic')
       end,
     })
 

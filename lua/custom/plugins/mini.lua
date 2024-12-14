@@ -2,6 +2,7 @@
 
 return {
   'echasnovski/mini.nvim',
+  version = '*',
   config = function()
     require 'custom.plugins.mini.ai'
     require 'custom.plugins.mini.align'

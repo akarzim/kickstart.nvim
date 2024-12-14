@@ -7,6 +7,7 @@ return {
     require 'custom.plugins.mini.ai'
     require 'custom.plugins.mini.align'
     require 'custom.plugins.mini.comment'
+    -- require 'custom.plugins.mini.git' -- not working :(
     require 'custom.plugins.mini.operators'
     require 'custom.plugins.mini.splitjoin'
     require 'custom.plugins.mini.starter'

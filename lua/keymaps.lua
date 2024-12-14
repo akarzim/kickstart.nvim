@@ -30,22 +30,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Keybinds to toggle options.
-vim.keymap.set('n', '<leader>t/', ':setlocal hlsearch!<CR>', { desc = '[T]oggle [h]ighlight search' })
-vim.keymap.set('n', '<leader>te', ':setlocal list! list?<CR>', { desc = '[T]oggle invisibl[e] characters' })
-vim.keymap.set('n', '<leader>tn', ':setlocal number!<CR>', { desc = '[T]oggle line [n]umbers' })
-vim.keymap.set('n', '<leader>tN', ':setlocal relativenumber<CR>', { desc = '[T]oggle line relative[n]umbers' })
-vim.keymap.set('n', '<leader>tp', ':setlocal paste!<CR>', { desc = '[T]oggle to [P]aste mode' })
-vim.keymap.set('n', '<leader>ts', ':setlocal spell! spell?<CR>', { desc = '[T]oggle [s]pelling' })
-vim.keymap.set('n', '<leader>tf', ':setlocal foldenable!<CR>', { desc = '[T]oggle [f]olding' })
-vim.keymap.set('n', '<leader>tc', ':setlocal cursorcolumn!<CR>', { desc = '[T]oggle [c]ursor column highlight' })
-vim.keymap.set('n', '<leader>tC', ':setlocal cursorline!<CR>', { desc = '[T]oggle [c]ursor line highlight' })
-vim.keymap.set('n', '<leader>tw', ':setlocal wrap! wrap?<CR>', { desc = '[T]oggle [w]rapping' })
--- vim.keymap.set('n', '<leader>tu', ':UndotreeToggle <CR>', { desc = '[T]oggle [u]ndo tree' })
--- vim.keymap.set('n', '<leader>tb', ':setlocal background=' .. (if vim.background == 'dark' then 'light<CR>' else 'dark<CR>' end), { desc = '[T]oggle [b]ackground theme' })
--- vim.keymap.set('n', '<leader>tg', ':Grammalect <CR>', { desc = '[T]oggle [G]rammalect' })
--- vim.keymap.set('n', '<leader>tt', ':setlocal winbar=' .. (if vim.winbar == '%f' then '<CR>' else '%f<CR>' end), { desc = '[T]oggle winbar [t]itle display' })
-
 -- store relative line number jumps in jumplist while treating wrapped lines like real lines
 -- NOTE: m' stores current position in jumplist NOTE: thanks to osse and bairui in #vim IRC!
 vim.keymap.set('n', 'k', ":<C-U>execute 'normal!' (v:count>1 ? \"m'\".v:count.'k' : 'gk')<CR>", { noremap = true, silent = true })

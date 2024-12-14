@@ -114,6 +114,7 @@ require 'lazy-plugins'
 -- [[ Custom configuration ]]
 require 'custom.config.diff'
 require 'custom.config.motion'
+require 'custom.config.toggle'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

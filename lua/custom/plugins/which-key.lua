@@ -45,6 +45,7 @@ return {
     -- visual mode
     { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
   },
+  expand = 1, -- expand groups when <= n mappings
   icons = {
     -- used by key format
     keys = {

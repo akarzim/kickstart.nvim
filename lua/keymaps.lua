@@ -36,5 +36,5 @@ vim.keymap.set('n', 'k', ":<C-U>execute 'normal!' (v:count>1 ? \"m'\".v:count.'k
 vim.keymap.set('n', 'j', ":<C-U>execute 'normal!' (v:count>1 ? \"m'\".v:count.'j' : 'gj')<CR>", { noremap = true, silent = true })
 
 -- apply these tricks to up and down arrow keys
-vim.keymap.set('n', '<Up>', 'k')
-vim.keymap.set('n', '<Down>', 'j')
+vim.keymap.set('n', '<Up>', 'gk')
+vim.keymap.set('n', '<Down>', 'gj')

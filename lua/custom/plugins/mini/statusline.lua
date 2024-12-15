@@ -11,6 +11,45 @@ statusline.section_location = function()
   return '%2l %2v'
 end
 
+local truncate_git_head = function(head)
+  local sep = '-'
+  local t = {}
+
+  for str in string.gmatch(head, '[^' .. sep .. ']+') do
+    table.insert(t, str)
+  end
+
+  if t[1] == head then
+    return head
+  end
+
+  if t[2] == t[#t] then
+    return table.concat(t, sep, 1, 2)
+  end
+
+  local last_sep = (t[3] == t[#t] and sep or '…-')
+  return t[1] .. sep .. t[2] .. last_sep .. t[#t]
+end
+
+---@param args __statusline_args Use `args.icon` to supply your own icon.
+---
+---@return __statusline_section
+local section_git = function(args)
+  if MiniStatusline.is_truncated(args.trunc_width) then
+    return ''
+  end
+
+  local head = vim.b.gitsigns_head
+  if head == nil then
+    return ''
+  end
+
+  local summary = truncate_git_head(head)
+
+  local icon = args.icon or 'Git'
+  return icon .. ' ' .. (summary == '' and '-' or summary)
+end
+
 return {
   -- set use_icons to true if you have a Nerd Font
   -- statusline.setup { use_icons = vim.g.have_nerd_font },
@@ -19,7 +58,7 @@ return {
     content = {
       active = function()
         local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
-        local git = MiniStatusline.section_git { trunc_width = 40, icon = '' }
+        local git = section_git { trunc_width = 40, icon = '' }
         local diff = MiniStatusline.section_diff { trunc_width = 75, icon = '⮁' }
         local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75, icon = '' }
         local lsp = MiniStatusline.section_lsp { trunc_width = 75, icon = '⧗' }
